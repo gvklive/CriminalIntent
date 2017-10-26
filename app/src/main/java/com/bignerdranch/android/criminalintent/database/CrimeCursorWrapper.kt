@@ -10,10 +10,10 @@ class CrimeCursorWrapper(cursor: Cursor) : CursorWrapper(cursor) {
 
     val crime: Crime
         get() {
-            val uuidString = getString(getColumnIndex(Cols.UUID))
-            val title = getString(getColumnIndex(Cols.TITLE))
-            val date = getLong(getColumnIndex(Cols.DATE))
-            val isSolved = getInt(getColumnIndex(Cols.SOLVED))
+            val uuidString = getString(getColumnIndex(CrimeTable.Cols.UUID))
+            val title = getString(getColumnIndex(CrimeTable.Cols.TITLE))
+            val date = getLong(getColumnIndex(CrimeTable.Cols.DATE))
+            val isSolved = getInt(getColumnIndex(CrimeTable.Cols.SOLVED))
             val suspect = getString(getColumnIndex(CrimeTable.Cols.SUSPECT))
 
             val crime = Crime(UUID.fromString(uuidString))
