@@ -1,11 +1,10 @@
 package com.bignerdranch.android.criminalintent
 
-import android.content.Intent
 import android.support.v4.app.Fragment
 
 class CrimeListActivity : SingleFragmentActivity(), CrimeListFragment.Callbacks, CrimeFragment.Callbacks {
 
-    protected override val layoutResId: Int
+    override val layoutResId: Int
         get() = R.layout.activity_masterdetail
 
     override fun createFragment(): Fragment {

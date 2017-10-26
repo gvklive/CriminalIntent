@@ -1,7 +1,6 @@
 package com.bignerdranch.android.criminalintent
 
-import java.util.Date
-import java.util.UUID
+import java.util.*
 
 class Crime @JvmOverloads constructor(val id: UUID = UUID.randomUUID()) {
     var title: String? = null

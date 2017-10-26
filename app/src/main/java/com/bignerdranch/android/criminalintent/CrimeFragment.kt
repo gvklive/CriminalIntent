@@ -4,15 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
-import android.database.Cursor
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
@@ -20,18 +15,9 @@ import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.ImageView
-
+import android.widget.*
 import java.io.File
-import java.util.Date
-import java.util.UUID
-
-import android.widget.CompoundButton.OnCheckedChangeListener
+import java.util.*
 
 class CrimeFragment : Fragment() {
 
@@ -82,7 +68,7 @@ class CrimeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val crimeId = arguments.getSerializable(ARG_CRIME_ID) as UUID
         mCrime = CrimeLab.get(activity).getCrime(crimeId)
-        mPhotoFile = CrimeLab.get(activity).getPhotoFile(this!!.mCrime!!)
+        mPhotoFile = CrimeLab.get(activity).getPhotoFile(this.mCrime!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -181,7 +167,7 @@ class CrimeFragment : Fragment() {
         super.onPause()
 
         CrimeLab.get(activity)
-                .updateCrime(this!!.mCrime!!)
+                .updateCrime(this.mCrime!!)
     }
 
     override fun onDetach() {
@@ -238,7 +224,7 @@ class CrimeFragment : Fragment() {
     }
 
     private fun updateCrime() {
-        CrimeLab.get(activity).updateCrime(this!!.mCrime!!)
+        CrimeLab.get(activity).updateCrime(this.mCrime!!)
         mCallbacks!!.onCrimeUpdated(mCrime)
     }
 
